@@ -16,8 +16,10 @@ public class C02_ClassWork {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         //1.http://zero.webappsecurity.com sayfasina gidin
+        driver.get("http://zero.webappsecurity.com");
 
         //2.Signin buttonuna tiklayin
+        
         //3.Login alanine “username” yazdirin
         //4.Password alanine “password” yazdirin
         //5.Sign in buttonuna tiklayin
