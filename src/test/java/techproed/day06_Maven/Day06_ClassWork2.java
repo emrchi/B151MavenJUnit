@@ -1,4 +1,4 @@
-package techproed.Odev;
+package techproed.day06_Maven;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class Day06_odev2 {
+public class Day06_ClassWork2 {
 
 //    "https://www.saucedemo.com" Adresine gidin
 //    Username kutusuna "standard_user" yazdirin

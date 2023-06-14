@@ -1,4 +1,4 @@
-package techproed.Odev;
+package techproed.day06_Maven;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class Day06_odev {
+public class Day06_ClassWork {
 
 //    C01_TekrarTesti isimli bir class  olusturun
 //    https://www.google.com/  adresine gidin
