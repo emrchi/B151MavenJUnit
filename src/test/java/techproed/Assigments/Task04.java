@@ -1,10 +1,9 @@
-package techproed.Assigment;
+package techproed.Assigments;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import techproed.utilities.TestBase;
 
 public class Task04 extends TestBase {

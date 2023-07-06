@@ -1,4 +1,4 @@
-package techproed.Assigment;
+package techproed.Assigments;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
-import java.util.List;
 
 public class Task03 {
 //-Amazon sayfasına gidelim

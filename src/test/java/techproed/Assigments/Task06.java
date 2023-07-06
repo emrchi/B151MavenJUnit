@@ -1,4 +1,4 @@
-package techproed.Assigment;
+package techproed.Assigments;
 
 import org.junit.Test;
 import org.openqa.selenium.By;

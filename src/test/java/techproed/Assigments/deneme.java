@@ -1,4 +1,4 @@
-package techproed.Assigment;
+package techproed.Assigments;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;

@@ -1,5 +1,8 @@
 package techproed.utilities;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
@@ -12,6 +15,10 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.xml.xpath.XPath;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -21,6 +28,11 @@ import java.util.Date;
 import java.util.List;
 
 public abstract class TestBase {
+
+    protected ExtentReports extentReports;                  //--> Raporlamayi baslatmak icin kullanilan class
+    protected ExtentHtmlReporter extentHtmlReporter;       //-->Raporu HTML formatında düzenler
+    protected ExtentTest extentTest;                      //--> Test adınlarına eklemek istediğimiz bilgileri bu class ile oluştururuz
+
     /*
      TestBase class'indan obje olusturmanin onune gecmek icin bu class'i abstract yapabiliriz
      TestBase testBase new = TestBase(); yani bu sekilde obje olusturmanin onune gecmis oluruz
@@ -150,4 +162,44 @@ public abstract class TestBase {
         }
 
     }
+    //UploadFile Robot Class
+    public void uploadFilePath(String filePath) {
+        try {
+            bekle(3);
+            StringSelection stringSelection = new StringSelection(filePath);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            bekle(3);
+            robot.keyPress(KeyEvent.VK_V);
+            bekle(3);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            bekle(3);
+            robot.keyRelease(KeyEvent.VK_V);
+            bekle(3);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            bekle(3);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+            bekle(3);
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    //Extent Report Methodu
+    public void extentReport(String browser, String reportName, String testName, String description){
+        extentReports = new ExtentReports();
+        String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu = "testOutput/extentReports/extentReport"+tarih+".html";
+        extentHtmlReporter = new ExtentHtmlReporter(dosyaYolu);
+        extentReports.attachReporter(extentHtmlReporter);     //--. HTML formatinda raporlamayi baslatacak.
+
+        //Raporda gözükmesini isteğimiz bilgiler için
+        extentReports.setSystemInfo("Browser",browser);
+        extentReports.setSystemInfo("Tester","Emre");
+        extentHtmlReporter.config().setDocumentTitle("Extent Report");
+        extentHtmlReporter.config().setReportName(reportName);
+
+        extentTest = extentReports.createTest(testName, description);
+
+     }
 }
