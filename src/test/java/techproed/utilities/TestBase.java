@@ -202,4 +202,43 @@ public abstract class TestBase {
         extentTest = extentReports.createTest(testName, description);
 
      }
+     //JS Click Method
+    public void click(WebElement element){
+         try {
+             element.click();
+         } catch (Exception e) {
+             JavascriptExecutor js = (JavascriptExecutor) driver;
+             js.executeScript("arguments[0].click();",element);
+         }
+    }
+    //JS Scroll WE Method
+    public void jsScrollWe(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+    //JS Scroll END Method(Sayfanın altına)
+    public void scrollEnd(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
+    //JS Scroll HOME Method(Sayfanın üstüne)
+    public void scrollHome(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+    }
+    //JS SendKeys Method()
+    public void SendKeys(String text,WebElement element){
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].value='"+text+"'",element);
+        }
+    }
+    //JS setAttribute() Method
+    public void jsSetAttribute(String text,String attribute,WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].setAttribute('"+attribute+"','"+text+"')",element);
+    }
 }
