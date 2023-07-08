@@ -25,6 +25,7 @@ public class C01_webTables extends TestBase {
     @Test
     public void test01() {
         extentReport("Chrome","WebTable","Web Table","Test Raporu");
+
         //    https://the-internet.herokuapp.com/tables sayfasına gidin
         driver.get("https://the-internet.herokuapp.com/tables");
         extentTest.info("https://the-internet.herokuapp.com/tables sayfasına gidildi.");
@@ -75,6 +76,7 @@ public class C01_webTables extends TestBase {
         String expectedData = "Jack";
         Assert.assertNotEquals(expectedData, actualData);
         extentTest.fail("3. Satir 2. Sutun bilgisinin 'Jason' oldugu goruldu.");
+
         extentTest.pass("Sayfa Kapatıldı");
         extentReports.flush();
     }

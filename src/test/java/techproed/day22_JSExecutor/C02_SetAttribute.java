@@ -71,4 +71,19 @@ public class C02_SetAttribute extends TestBase {
         js.executeScript("arguments[0].setAttribute('id','emre')",aramaKutusu);    //burada id ye emre atadik
         driver.findElement(By.id("emre")).sendKeys("QA", Keys.ENTER);
     }
+
+    @Test
+    public void test05() {
+
+        //TestBase de olusturdugumuz method ile cozelim
+        //Techpro education ana sayfasina git
+        driver.get("https://techproeducation.com");
+        bekle(2);
+        driver.findElement(By.xpath("//i[@class='eicon-close']")).click();
+
+        //Arama kutusuna QA yaz
+        WebElement aramaKutusu = driver.findElement(By.xpath("//*[@type='search']"));
+        jsSetAttribute("value","QA",aramaKutusu);     //--> Method ile attribute degerini set ettik
+
+    }
 }

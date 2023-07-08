@@ -19,7 +19,7 @@ public class day20_homeWork extends TestBase {
 
         //Başlığın Extent Report olduğunu test edelim
         Assert.assertEquals("Extent Report", driver.getTitle());
-        extentTest.info("Başlığın Extent Report olduğunu test edildi");
+        extentTest.info("Başlığın Extent Report olduğu test edildi");
 
         //Rapor temasını dark yapalım
         driver.findElement(By.id("theme-selector")).click();
@@ -32,14 +32,13 @@ public class day20_homeWork extends TestBase {
         extentTest.info("dashboard bolumundeki tablo yazdirildi.");
 
         //Tester'ın "Emre" olduğunu doğrulayalım
-        WebElement actualData = driver.findElement(By.xpath("(//table)[3]//tr[3]//td[2]"));
-        String actualData1 = actualData.getText();
+        String actualData = driver.findElement(By.xpath("(//table)[3]//tr[3]//td[2]")).getText();
         String expectedData = "Emre";
-        Assert.assertEquals(expectedData,actualData1);
+        Assert.assertEquals(expectedData,actualData);
         extentTest.info("Tester'ın Emre olduğu doğrulandi.");
 
         //Sayfayı kapatalım
-        extentTest.info("Sayfa kapatildi");
+        extentTest.pass("Sayfa kapatildi");
         extentReports.flush();
 
     }

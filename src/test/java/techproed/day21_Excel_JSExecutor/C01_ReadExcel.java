@@ -19,6 +19,7 @@ public class C01_ReadExcel {
         FileInputStream fis = new FileInputStream("src/test/java/techproed/resources/Capitals.xlsx");
         Workbook workbook = WorkbookFactory.create(fis);
         System.out.println(workbook.getSheet("Sheet1").getRow(0).getCell(1));
+
         //3. Satır 1. sütun değerini yazdırın ve "France" olduğunu test edin
         String satir3Sutun1 = workbook.getSheet("Sheet1").getRow(2).getCell(0).toString();
         System.out.println("3. Satir 1. Sütun bilgisi = " + satir3Sutun1);
